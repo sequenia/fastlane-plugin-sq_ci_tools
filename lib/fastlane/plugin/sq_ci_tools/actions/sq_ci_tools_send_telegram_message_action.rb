@@ -1,7 +1,7 @@
 require 'fastlane/action'
-require_relative '../helper/sq_ci_tools_helper'
 require 'net/http/post/multipart'
-require_relative '../../../../sq_ci_tools/telegram/options'
+require_relative '../helper/sq_ci_tools_helper'
+require_relative '../options/telegram'
 
 module Fastlane
   module Actions
@@ -45,7 +45,7 @@ module Fastlane
             type: String
           )
         ] +
-          ::SqCiTools::Telegram::Options.options
+          Options::Telegram.options
       end
 
       def self.return_value

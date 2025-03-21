@@ -1,6 +1,6 @@
 require 'fastlane/action'
 require_relative '../helper/sq_ci_tools_helper'
-require_relative '../../../../sq_ci_tools/s3/options'
+require_relative '../options/s3'
 require 'aws-sdk-core'
 
 module Fastlane
@@ -61,7 +61,7 @@ module Fastlane
             type: String
           )
         ] +
-          ::SqCiTools::S3::Options.options
+          Options::S3.options
       end
 
       def self.return_type

@@ -1,8 +1,8 @@
 require 'fastlane/action'
 require_relative '../helper/sq_ci_tools_helper'
-require_relative '../../../../sq_ci_tools/google_play/options'
-require_relative '../../../../sq_ci_tools/android_app/options'
-require_relative '../../../../sq_ci_tools/shared/options'
+require_relative '../options/google_play'
+require_relative '../options/android_app'
+require_relative '../options/shared'
 
 module Fastlane
   module Actions
@@ -44,9 +44,9 @@ module Fastlane
             type: String
           )
         ] +
-          ::SqCiTools::GooglePlay::Options.options +
-          ::SqCiTools::AndroidApp::Options.options +
-          ::SqCiTools::Shared::Options.options
+          GooglePlay.options +
+          AndroidApp.options +
+          Shared.options
       end
 
       def self.return_type

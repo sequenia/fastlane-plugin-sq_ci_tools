@@ -1,6 +1,6 @@
 require 'fastlane/action'
 require_relative '../helper/sq_ci_tools_helper'
-require_relative '../../../../sq_ci_tools/ios_app/options'
+require_relative '../options/ios_app'
 
 module Fastlane
   module Actions
@@ -32,7 +32,7 @@ module Fastlane
             type: String
           )
         ] +
-          ::SqCiTools::IosApp::Options.options
+          Options::IosApp.options
       end
 
       def self.return_value

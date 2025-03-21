@@ -1,8 +1,8 @@
 require 'fastlane/action'
 require_relative '../helper/sq_ci_tools_helper'
-require_relative '../../../../sq_ci_tools/keychain/options'
-require_relative '../../../../sq_ci_tools/ios_app/options'
-require_relative '../../../../sq_ci_tools/code_signing/options'
+require_relative '../options/keychain'
+require_relative '../options/ios_app'
+require_relative '../options/code_signing'
 
 module Fastlane
   module Actions
@@ -108,9 +108,9 @@ module Fastlane
             default_value: true
           )
         ] +
-          ::SqCiTools::CodeSigning::Options.options +
-          ::SqCiTools::Keychain::Options.options +
-          ::SqCiTools::IosApp::Options.options
+          Options::CodeSigning.options +
+          Options::Keychain.options +
+          Options::IosApp.options
       end
 
       def self.return_value

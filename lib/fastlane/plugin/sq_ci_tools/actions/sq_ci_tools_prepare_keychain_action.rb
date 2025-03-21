@@ -1,6 +1,6 @@
 require 'fastlane/action'
 require_relative '../helper/sq_ci_tools_helper'
-require_relative '../../../../sq_ci_tools/keychain/options'
+require_relative '../options/keychain'
 
 module Fastlane
   module Actions
@@ -31,7 +31,7 @@ module Fastlane
       end
 
       def self.available_options
-        ::SqCiTools::Keychain::Options.options
+        Options::Keychain.options
       end
 
       def self.return_value
