@@ -5,7 +5,7 @@ require 'aws-sdk-core'
 
 module Fastlane
   module Actions
-    class SqCiToolsToolsUploadFileToS3Action < Action
+    class SqCiToolsUploadFileToS3Action < Action
       def self.run(params)
         access_key = params[:s3_access_key_id]
         key_secret = params[:s3_secret_access_key]
