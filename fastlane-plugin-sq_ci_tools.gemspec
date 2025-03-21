@@ -1,3 +1,5 @@
+# coding: utf-8
+
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fastlane/plugin/sq_ci_tools/version'
@@ -9,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'semen@sequenia.com'
 
   spec.summary       = 'CI Library for sequenia\'s projects'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-sq_ci_tools"
+  spec.homepage      = "https://github.com/sequenia/fastlane-plugin-sq_ci_tools"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
