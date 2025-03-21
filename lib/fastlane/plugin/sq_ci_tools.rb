@@ -1,3 +1,5 @@
+require 'fastlane/plugin/sq_ci_tools/version'
+
 module Fastlane
   module SqCiTools
     # Return all .rb files inside the "actions", "helper" and "options" directory
