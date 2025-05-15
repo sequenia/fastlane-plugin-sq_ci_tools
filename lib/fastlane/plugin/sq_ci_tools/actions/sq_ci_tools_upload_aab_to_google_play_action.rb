@@ -44,9 +44,9 @@ module Fastlane
             type: String
           )
         ] +
-          GooglePlay.options +
-          AndroidApp.options +
-          Shared.options
+          Options::GooglePlay.options +
+          Options::AndroidApp.options +
+          Options::Shared.options
       end
 
       def self.return_type

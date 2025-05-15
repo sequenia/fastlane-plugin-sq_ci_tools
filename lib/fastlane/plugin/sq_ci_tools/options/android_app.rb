@@ -5,6 +5,7 @@ require 'credentials_manager/appfile_config'
 
 module Fastlane
   UI = FastlaneCore::UI unless Fastlane.const_defined?(:UI)
+
   module Options
     class AndroidApp
       def self.options
