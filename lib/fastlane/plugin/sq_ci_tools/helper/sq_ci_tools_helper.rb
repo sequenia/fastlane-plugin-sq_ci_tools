@@ -143,8 +143,10 @@ module Fastlane
         project = Xcodeproj::Project.open(xcodeproj_path)
         targets = {}
         project.native_targets.each do |native_target|
-          build_configuration = native_target.build_configurations.find { |configuration| configuration.name == target_scheme }
-          targets[native_target.name] = self.resolve_recursive_build_setting(build_configuration, 'PRODUCT_BUNDLE_IDENTIFIER')
+          unless native_target.product_type == "com.apple.product-type.bundle.unit-test" 
+            build_configuration = native_target.build_configurations.find { |configuration| configuration.name == target_scheme }
+            targets[native_target.name] = self.resolve_recursive_build_setting(build_configuration, 'PRODUCT_BUNDLE_IDENTIFIER')  
+          end
         end
 
         targets
