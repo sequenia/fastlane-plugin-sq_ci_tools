@@ -21,7 +21,7 @@ module Fastlane
           request = Net::HTTP::Post::Multipart.new(uri, {
             "chat_id" => chat_id,
             "text" => params[:message],
-            "parse_mode" => params[:parse_mode]
+            "parse_mode" => params[:telegram_parse_mode]
           })
 
           http.request(request)
@@ -29,7 +29,7 @@ module Fastlane
       end
 
       def self.description
-        'Send message via telegram'
+        'Send message via Telegram'
       end
 
       def self.details

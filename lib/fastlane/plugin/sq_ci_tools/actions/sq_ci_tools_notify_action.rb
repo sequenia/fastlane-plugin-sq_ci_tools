@@ -11,9 +11,22 @@ module Fastlane
                         .map { |link| "#{link[:name] || 'Ссылка'}: #{link[:url]}" }
                         .join("\n\n")
 
-        other_action.sq_ci_tools_send_telegram_message(
-          message: "#{message}\n\n#{links_message}"
-        )
+        full_message = "#{message}\n\n#{links_message}"
+        begin
+          other_action.sq_ci_tools_send_telegram_message(
+            message: full_message
+          )
+        rescue => e
+          puts "Send message via Telegram error: #{e.message}"
+        end 
+        
+        begin
+          other_action.sq_ci_tools_send_max_message(
+            message: full_message
+          )
+        rescue => e
+          puts "Send message via Max error: #{e.message}"
+        end 
       end
 
       def self.description

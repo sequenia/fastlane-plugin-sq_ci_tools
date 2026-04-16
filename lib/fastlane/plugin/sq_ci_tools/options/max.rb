@@ -7,30 +7,30 @@ module Fastlane
   UI = FastlaneCore::UI unless Fastlane.const_defined?(:UI)
 
   module Options
-    class Telegram
+    class Max
       def self.options
         [
           FastlaneCore::ConfigItem.new(
-            key: :telegram_access_token,
-            env_name: 'SQ_CI_TELEGRAM_ACCESS_TOKEN',
-            description: 'Access token for Telegram bot',
+            key: :max_access_token,
+            env_name: 'SQ_CI_MAX_ACCESS_TOKEN',
+            description: 'Access token for Max bot',
             optional: true,
             type: String
           ),
           FastlaneCore::ConfigItem.new(
-            key: :telegram_chat_ids,
-            env_name: 'SQ_CI_TELEGRAM_CHAT_IDS',
-            description: 'Telegram\'s chat ids for send message',
+            key: :max_chat_ids,
+            env_name: 'SQ_CI_MAX_CHAT_IDS',
+            description: 'Max\'s chat ids for send message',
             optional: true,
             type: String
           ),
           FastlaneCore::ConfigItem.new(
-            key: :telegram_parse_mode,
-            env_name: 'SQ_CI_TELEGRAM_PARSE_MODE',
-            description: 'Telegram\'s parse mode',
+            key: :max_format,
+            env_name: 'SQ_CI_MAX_FORMAT',
+            description: 'Max\'s format of message',
             optional: true,
             type: String,
-            default_value: "Markdown"
+            default_value: "markdown"
           )
         ]
       end
