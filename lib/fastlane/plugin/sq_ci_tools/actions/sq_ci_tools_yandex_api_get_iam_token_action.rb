@@ -30,7 +30,7 @@ module Fastlane
         [
           FastlaneCore::ConfigItem.new(
             key: :keys_file_path,
-            env_name: 'SQ_CI_YANDEX_API_KEY_FILES_PATH',
+            env_name: 'SQ_CI_YANDEX_API_KEY_FILE_PATH',
             description: 'File with keys of Yandex\'s Service account',
             optional: false,
             type: String
