@@ -29,11 +29,8 @@ module Fastlane
             "text" => params[:message],
             "format" => params[:max_format]
           }.to_json
-          response = http.request(request)
 
-          puts response
-          puts response.message
-          puts response.body
+          http.request(request)
         end
       end
 

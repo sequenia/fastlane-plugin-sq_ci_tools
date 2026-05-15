@@ -13,27 +13,6 @@ module Fastlane
     class SqCiToolsHelper
       GRADLE_FILE_TEST = "/tmp/fastlane/tests/versioning/app/build.gradle"
 
-      def self.notification_message(app_name:, app_version_string:, app_type:, links:)
-        if app_type == "beta"
-          message = "Коллеги, сборка приложения '#{app_name}' #{app_version_string} готова к тестированию!"
-        elsif app_type == "rc"
-          message = "Коллеги, предрелизная сборка приложения '#{app_name}' #{app_version_string} готова к тестированию!"
-        elsif app_type == "release"
-          message = "Коллеги, сборка приложения '#{app_name}' #{app_version_string} отправлена на ревью!"
-        else
-          return ""
-        end
-
-        return message if links.nil? || links.length == 0
-
-        links_message = links
-                        .select { |link| !link[:url].nil? }
-                        .map { |link| "#{link[:name] || 'Ссылка на установку'}: #{link[:url]}" }
-                        .join("\n\n")
-
-        "#{message}\n\n#{links_message}"
-      end
-
       def self.add_target_attributes(target_name:, project_path:)
         project = Xcodeproj::Project.open(project_path)
 

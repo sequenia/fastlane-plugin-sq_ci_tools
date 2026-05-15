@@ -16,6 +16,7 @@ module Fastlane
         uri = URI.parse("https://api.telegram.org/bot#{access_token}/sendMessage")
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
+        http.set_debug_output($stdout)
 
         chat_ids.split(',').each do |chat_id|
           request = Net::HTTP::Post::Multipart.new(uri, {
