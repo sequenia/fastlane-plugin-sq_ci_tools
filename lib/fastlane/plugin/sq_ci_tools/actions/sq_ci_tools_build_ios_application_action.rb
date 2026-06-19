@@ -9,13 +9,14 @@ module Fastlane
     class SqCiToolsBuildIosApplicationAction < Action
       def self.run(params)
 
+        timeout = params["timeout"]
         project_path = params[:project_path]
         workspace_path = params[:workspace_path]
         derived_data_path = params[:derived_data_path]
 
         ENV['FASTLANE_XCODEBUILD_SETTINGS_RETRIES'] = "10"
-        ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = "300"
-        ENV['FASTLANE_XCODE_LIST_TIMEOUT'] = "300"
+        ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = timeout
+        ENV['FASTLANE_XCODE_LIST_TIMEOUT'] = timeout
 
         if !workspace_path.nil? && workspace_path != ''
           ENV['GYM_WORKSPACE'] = workspace_path
@@ -64,7 +65,8 @@ module Fastlane
         ] +
           Options::CodeSigning.options +
           Options::Keychain.options +
-          Options::IosApp.options
+          Options::IosApp.options +
+          Options::Shared.options
       end
 
       def self.return_value
