@@ -15,8 +15,8 @@ module Fastlane
         derived_data_path = params[:derived_data_path]
 
         ENV['FASTLANE_XCODEBUILD_SETTINGS_RETRIES'] = "10"
-        ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = timeout
-        ENV['FASTLANE_XCODE_LIST_TIMEOUT'] = timeout
+        ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = "#{timeout}"
+        ENV['FASTLANE_XCODE_LIST_TIMEOUT'] = "#{timeout}"
 
         if !workspace_path.nil? && workspace_path != ''
           ENV['GYM_WORKSPACE'] = workspace_path
