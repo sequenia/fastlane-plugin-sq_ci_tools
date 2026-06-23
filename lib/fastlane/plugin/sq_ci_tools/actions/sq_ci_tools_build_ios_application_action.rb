@@ -9,7 +9,7 @@ module Fastlane
     class SqCiToolsBuildIosApplicationAction < Action
       def self.run(params)
 
-        timeout = params["timeout"]
+        timeout = params[:timeout]
         project_path = params[:project_path]
         workspace_path = params[:workspace_path]
         derived_data_path = params[:derived_data_path]
